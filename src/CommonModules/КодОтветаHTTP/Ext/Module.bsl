@@ -184,6 +184,306 @@
 
 #КонецОбласти
 
+#Область Redirection_3xx
+
+Функция isMultipleChoices( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().MULTIPLE_CHOICES );
+
+КонецФункции
+
+Функция isMovedPermanently( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().MOVED_PERMANENTLY );
+
+КонецФункции
+
+Функция isFound( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().FOUND );
+
+КонецФункции
+
+Функция isSeeOther( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().SEE_OTHER );
+
+КонецФункции
+
+Функция isNotModified( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NOT_MODIFIED );
+
+КонецФункции
+
+Функция isUseProxy( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().USE_PROXY );
+
+КонецФункции
+
+Функция isTemporaryRedirect( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().TEMPORARY_REDIRECT );
+
+КонецФункции
+
+Функция isPermanentRedirect( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PERMANENT_REDIRECT );
+
+КонецФункции
+
+#КонецОбласти
+
+#Область ClientError_4xx
+
+Функция isBadRequest( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().BAD_REQUEST );
+
+КонецФункции
+
+Функция isUnauthorized( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().UNAUTHORIZED );
+
+КонецФункции
+
+Функция isPaymentRequired( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PAYMENT_REQUIRED );
+
+КонецФункции
+
+Функция isForbidden( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().FORBIDDEN );
+
+КонецФункции
+
+Функция isNotFound( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NOT_FOUND );
+
+КонецФункции
+
+Функция isMethodNotAllowed( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().METHOD_NOT_ALLOWED );
+
+КонецФункции
+
+Функция isNotAcceptable( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NOT_ACCEPTABLE );
+
+КонецФункции
+
+Функция isProxyAuthentication( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PROXY_AUTHENTICATION_REQUIRED );
+
+КонецФункции
+
+Функция isRequestTimeout( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().REQUEST_TIMEOUT );
+
+КонецФункции
+
+Функция isConflict( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().CONFLICT );
+
+КонецФункции
+
+Функция isGone( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().GONE );
+
+КонецФункции
+
+Функция isLengthRequired( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().LENGTH_REQUIRED );
+
+КонецФункции
+
+Функция isPreconditionFailed( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PRECONDITION_FAILED );
+
+КонецФункции
+
+Функция isPayloadTooLarge( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PAYLOAD_TOO_LARGE );
+
+КонецФункции
+
+Функция isURITooLong( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().URI_TOO_LONG );
+
+КонецФункции
+
+Функция isUnsupportedMedia( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().UNSUPPORTED_MEDIA_TYPE );
+
+КонецФункции
+
+Функция isRequestedRangeNotSatisfiable( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().REQUESTED_RANGE_NOT_SATISFIABLE );
+
+КонецФункции
+
+Функция isExpectationFailed( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().EXPECTATION_FAILED );
+
+КонецФункции
+
+Функция isImATeapot( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().I_AM_A_TEAPOT );
+
+КонецФункции
+
+Функция isDestinationLocked( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().DESTINATION_LOCKED );
+
+КонецФункции
+
+Функция isUnprocessableEntity( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().UNPROCESSABLE_ENTITY );
+
+КонецФункции
+
+Функция isLocked( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().LOCKED );
+
+КонецФункции
+
+Функция isFailedDependency( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().FAILED_DEPENDENCY );
+
+КонецФункции
+
+Функция isUpgradeRequired( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().UPGRADE_REQUIRED );
+
+КонецФункции
+
+Функция isPreconditionRequired( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().PRECONDITION_REQUIRED );
+
+КонецФункции
+
+Функция isTooManyRequests( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().TOO_MANY_REQUESTS );
+
+КонецФункции
+
+Функция isRequestHeaderTooLarge( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().REQUEST_HEADER_FIELDS_TOO_LARGE );
+
+КонецФункции
+
+Функция isUnavailableReasons( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().UNAVAILABLE_FOR_LEGAL_REASONS );
+
+КонецФункции
+
+#КонецОбласти
+
+#Область ServerError_5xx
+
+Функция isInternalServerError( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().INTERNAL_SERVER_ERROR );
+
+КонецФункции
+
+Функция isNotImplemented( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NOT_IMPLEMENTED );
+
+КонецФункции
+
+Функция isBadGateway( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().BAD_GATEWAY );
+
+КонецФункции
+
+Функция isServiceUnavailable( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().SERVICE_UNAVAILABLE );
+
+КонецФункции
+
+Функция isGatewayTimeout( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().GATEWAY_TIMEOUT );
+
+КонецФункции
+
+Функция isHTTPVersionNotSupported( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().HTTP_VERSION_NOT_SUPPORTED );
+
+КонецФункции
+
+Функция isVariantAlsoNegotiates( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().VARIANT_ALSO_NEGOTIATES );
+
+КонецФункции
+
+Функция isInsufficientStorage( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().INSUFFICIENT_STORAGE );
+
+КонецФункции
+
+Функция isLoopDetected( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().LOOP_DETECTED );
+
+КонецФункции
+
+Функция isBandwidthLimitExceeded( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().BANDWIDTH_LIMIT_EXCEEDED );
+
+КонецФункции
+
+Функция isNotExtended( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NOT_EXTENDED );
+
+КонецФункции
+
+Функция isNetworkAuthentication( Знач Код ) Экспорт
+	
+	Возврат ( Код = КодыОтветаHTTP().NETWORK_AUTHENTICATION_REQUIRED );
+
+КонецФункции
+
+#КонецОбласти
+
 #КонецОбласти
 
 #Область СлужебныйПрограммныйИнтерфейс

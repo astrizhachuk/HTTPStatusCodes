@@ -105,7 +105,7 @@
 	ОписаниеКодаОтвета( Результат, 208, "ALREADY_REPORTED", "Already Reported" );
 	ОписаниеКодаОтвета( Результат, 226, "IM_USED", "IM Used" );
 	
-	ОписаниеКодаОтвета( Результат, 300, "MULTIPLE_СHOICES", "Multiple сhoices" );
+	ОписаниеКодаОтвета( Результат, 300, "MULTIPLE_CHOICES", "Multiple сhoices" );
 	ОписаниеКодаОтвета( Результат, 301, "MOVED_PERMANENTLY", "Moved Permanently" );
 	ОписаниеКодаОтвета( Результат, 302, "FOUND", "Found" );
 	ОписаниеКодаОтвета( Результат, 303, "SEE_OTHER", "See Other" );
