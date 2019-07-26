@@ -92,6 +92,114 @@
 
 КонецФункции
 
+// Определяет к какому классу кодов ответа относится переданный в функции код.
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Строка - возможные значения: "Информация", "Успех", "Перенаправление", "ОшибкаКлиента", "ОшибкаСервера".
+//
+Функция КлассКодаОтвета( Знач Код ) Экспорт
+	
+	Перем КодСуществует;
+	Перем КлассКодаОтвета;
+	Перем Результат;
+
+	Перем ПервыйКласс;
+	Перем ПоследнийКласс;
+	Перем Знаменатель;
+	
+	КодСуществует = ( НайтиИдентификаторПоКоду( Код ) <> Неопределено );
+	
+	Результат = Неопределено;
+	Если ( НЕ КодСуществует ) Тогда
+		Возврат Результат;
+	КонецЕсли;
+
+	Знаменатель = 100;
+	КлассКодаОтвета = Цел( Код / Знаменатель );
+	
+	ПервыйКласс = 1;
+	ПоследнийКласс = 5;
+	Если ( КлассКодаОтвета < ПервыйКласс И КлассКодаОтвета > ПоследнийКласс ) Тогда
+		Возврат Результат;
+	КонецЕсли;
+	
+	Возврат КлассыКодовОтвета()[ КлассКодаОтвета - 1 ];
+	
+КонецФункции
+
+// Определяет относится ли переданный в функцию код к информационному классу кодов.
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Булево - Истина, код относится к классу "Информация", иначе - Ложь.
+//
+Функция ЭтоИнформация( Знач Код ) Экспорт
+	
+	Возврат ( КлассКодаОтвета( Код ) = "Информация" );
+	
+КонецФункции
+
+// Определяет относится ли переданный в функцию код к классу кодов "Успех".
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Булево - Истина, код относится к классу "Успех", иначе - Ложь.
+//
+Функция ЭтоУспех( Знач Код ) Экспорт
+	
+	Возврат ( КлассКодаОтвета( Код ) = "Успех" );
+	
+КонецФункции
+
+// Определяет относится ли переданный в функцию код к классу кодов "Перенаправление".
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Булево - Истина, код относится к классу "Перенаправление", иначе - Ложь.
+//
+Функция ЭтоПеренаправление( Знач Код ) Экспорт
+	
+	Возврат ( КлассКодаОтвета( Код ) = "Перенаправление" );
+	
+КонецФункции
+
+// Определяет относится ли переданный в функцию код к классу кодов "Ошибка клиента".
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Булево - Истина, код относится к классу "Ошибка клиента", иначе - Ложь.
+//
+Функция ЭтоОшибкаКлиента( Знач Код ) Экспорт
+	
+	Возврат ( КлассКодаОтвета( Код ) = "ОшибкаКлиента" );
+	
+КонецФункции
+
+// Определяет относится ли переданный в функцию код к классу кодов "Ошибка сервера".
+//
+// Параметры:
+//  Код	 - Число - код ответа HTTP.
+// 
+// Возвращаемое значение:
+//   - Булево - Истина, код относится к классу "Ошибка сервера", иначе - Ложь.
+//
+Функция ЭтоОшибкаСервера( Знач Код ) Экспорт
+	
+	Возврат ( КлассКодаОтвета( Код ) = "ОшибкаСервера" );
+	
+КонецФункции
+
 #Область Informational_1xx
 
 Функция isContinue( Знач Код ) Экспорт
@@ -488,10 +596,74 @@
 
 #Область СлужебныйПрограммныйИнтерфейс
 
-// Соответствие кодов ответа HTTP и их краткому имени, используемого для
-// именнованого обращения к элементам структуры.
-//	100, "CONTINUE", "Continue"
-//	200, "OK", "OK"
+// Соответствие кодов ответа HTTP и их краткому имени, используемого для именованого обращения к элементам структуры.
+//
+//		100, "CONTINUE", "Continue"
+// 		101, "SWITCHING_PROTOCOLS", "Switching Protocols"
+//      102, "PROCESSING", "Processing"
+//      103, "CHECKPOINT", "Checkpoint"
+//
+//		200, "OK", "OK"
+//		201, "CREATED", "Created"
+//		202, "ACCEPTED", "Accepted"
+//		203, "NON_AUTHORITATIVE_INFORMATION", "Non-Authoritative Information"
+//		204, "NO_CONTENT", "No Content"
+//		205, "RESET_CONTENT", "Reset Content"
+//		206, "PARTIAL_CONTENT", "Partial Content"
+//		207, "MULTI_STATUS", "Multi-Status"
+//		208, "ALREADY_REPORTED", "Already Reported"
+//		226, "IM_USED", "IM Used"
+//
+//		300, "MULTIPLE_CHOICES", "Multiple сhoices"
+//		301, "MOVED_PERMANENTLY", "Moved Permanently"
+//		302, "FOUND", "Found"
+//		303, "SEE_OTHER", "See Other"
+//		304, "NOT_MODIFIED", "Not Modified"
+//		305, "USE_PROXY", "Use Proxy"
+//		307, "TEMPORARY_REDIRECT", "Temporary Redirect"
+//		308, "PERMANENT_REDIRECT", "Permanent Redirect"
+//
+//		400, "BAD_REQUEST", "Bad Request"
+//		401, "UNAUTHORIZED", "Unauthorized"
+//		402, "PAYMENT_REQUIRED", "Payment Required"
+//		403, "FORBIDDEN", "Forbidden"
+//		404, "NOT_FOUND", "Not Found"
+//		405, "METHOD_NOT_ALLOWED", "Method Not Allowed"
+//		406, "NOT_ACCEPTABLE", "Not Acceptable"
+//		407, "PROXY_AUTHENTICATION_REQUIRED", "Proxy Authentication Required"
+//		408, "REQUEST_TIMEOUT", "Request Timeout"
+//		409, "CONFLICT", "Conflict"
+//		410, "GONE", "Gone"
+//		411, "LENGTH_REQUIRED", "Length Required"
+//		412, "PRECONDITION_FAILED", "Precondition Failed"
+//		413, "PAYLOAD_TOO_LARGE", "Payload Too Large"
+//		414, "URI_TOO_LONG", "URI Too Long"
+//		415, "UNSUPPORTED_MEDIA_TYPE", "Unsupported Media Type"
+//		416, "REQUESTED_RANGE_NOT_SATISFIABLE", "Requested range not satisfiable"
+//		417, "EXPECTATION_FAILED", "Expectation Failed"
+//		418, "I_AM_A_TEAPOT", "I'm a teapot"
+//		421, "DESTINATION_LOCKED", "Destination Locked"
+//		422, "UNPROCESSABLE_ENTITY", "Unprocessable Entity"
+//		423, "LOCKED", "Locked"
+//		424, "FAILED_DEPENDENCY", "Failed Dependency"
+//		426, "UPGRADE_REQUIRED", "Upgrade Required"
+//		428, "PRECONDITION_REQUIRED", "Precondition Required"
+//		429, "TOO_MANY_REQUESTS", "Too Many Requests"
+//		431, "REQUEST_HEADER_FIELDS_TOO_LARGE", "Request Header Fields Too Large"
+//		451, "UNAVAILABLE_FOR_LEGAL_REASONS", "Unavailable For Legal Reasons"
+//
+//		500, "INTERNAL_SERVER_ERROR", "Internal Server Error"
+//		501, "NOT_IMPLEMENTED", "Not Implemented"
+//		502, "BAD_GATEWAY", "Bad Gateway"
+//		503, "SERVICE_UNAVAILABLE", "Service Unavailable"
+//		504, "GATEWAY_TIMEOUT", "Gateway Timeout"
+//		505, "HTTP_VERSION_NOT_SUPPORTED", "HTTP Version not supported"
+//		506, "VARIANT_ALSO_NEGOTIATES", "Variant Also Negotiates"
+//		507, "INSUFFICIENT_STORAGE", "Insufficient Storage"
+//		508, "LOOP_DETECTED", "Loop Detected"
+//		509, "BANDWIDTH_LIMIT_EXCEEDED", "Bandwidth Limit Exceeded"
+//		510, "NOT_EXTENDED", "Not Extended"
+//		511, "NETWORK_AUTHENTICATION_REQUIRED", "Network Authentication Required"
 // 
 // Возвращаемое значение:
 //   - ФиксированнаяСтруктура - соответствия числовых кодов и краткого имени ответа:
@@ -505,6 +677,25 @@
 	
 	Возврат КодОтветаHTTPПовтИсп.КодыОтветаHTTP();
 	
+КонецФункции
+
+#КонецОбласти
+
+#Область СлужебныеПроцедурыИФункции
+
+Функция КлассыКодовОтвета()
+	
+	Перем Результат;
+	
+	Результат = Новый Массив();
+	Результат.Добавить("Информация");
+	Результат.Добавить("Успех");
+	Результат.Добавить("Перенаправление");
+	Результат.Добавить("ОшибкаКлиента");
+	Результат.Добавить("ОшибкаСервера");
+	
+	Возврат Результат;
+
 КонецФункции
 
 #КонецОбласти
