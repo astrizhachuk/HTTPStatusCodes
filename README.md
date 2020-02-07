@@ -1,6 +1,8 @@
 # Работа с кодами ответов HTTP для "1С:Предприятие 8"
 
-После проверки пары проектов с помощью [BSL Language Server](https://1c-syntax.github.io/bsl-language-server/) захотелось избавиться от "магических чисел" в коде при работе с HTTP-запросами. Использование данной небольшой библиотеки позволяет сделать работу с кодами ответов HTTP нагляднее и по стандартам 1С.
+![sonar-scanner](https://github.com/astrizhachuk/CodeStatusHTTP/workflows/sonar-scanner/badge.svg)
+
+После проверки пары проектов с помощью [BSL Language Server](https://1c-syntax.github.io/bsl-language-server/) захотелось избавиться от "магических чисел" в коде при работе с HTTP-запросами. Использование данной небольшой библиотеки позволяет сделать работу с кодами ответов HTTP нагляднее и в соответствии со стандартами 1С.
 
 Рекомендую к ознакомлению и библиотеку [КоннекторHTTP](https://github.com/vbondarevsky/Connector) by [Vladimir Bondarevskiy](https://www.linkedin.com/in/vbondarevsky/).
 
@@ -18,13 +20,22 @@
 
 Платформа **8.3.10** и выше.
 
+## Зависимости
+
+При разработке используются:
+
+1. [1C:Enterprise](https://1c-dn.com) 8.3.14.1993 (8.3.14 compatibility mode)
+2. [1C:Enterprise Development Tools](https://edt.1c.ru) (2020.1.0+640)
+3. [1Unit](https://github.com/DoublesunRUS/ru.capralow.dt.unit.launcher)
+4. [vanessa-automation](https://github.com/Pr-Mex/vanessa-automation)
+5. [dt.bslls.validator](https://github.com/DoublesunRUS/ru.capralow.dt.bslls.validator)
+6. [BSL Language Server](https://github.com/1c-syntax/bsl-language-server)
+
 ## Использование
 
 Скопируйте все общие модули к себе в конфигурацию.
 
-Обработка Тесты для работы библиотеки не нужна и служит только для самодиагностики.
-
-Работа осуществляется через едниный программный интерфейс общего модуля КодОтветаHTTP как в клиентском, так и в серверном контекстах.
+Работа осуществляется через программный интерфейс общего модуля КодОтветаHTTP как в клиентском, так и в серверном контекстах.
 
 ## Примеры
 
@@ -46,7 +57,7 @@
 КонецЕсли;
 ```
 
-Появилась возможность просто сделать следующее:
+Появилась возможность сделать следующее:
 
 ```bsl
 Результат = КодОтветаHTTP.ЭтоОшибкаКлиента( 407 );
