@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Subsystem xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3e4d82bb-fc1b-40c9-bbe0-2f9aca9b1e2a">
+  <name>КодыОтветаHTTP</name>
+  <synonym>
+    <key>ru</key>
+    <value>Коды ответа HTTP</value>
+  </synonym>
+  <includeHelpInContents>true</includeHelpInContents>
+  <content>CommonModule.КодОтветаHTTP</content>
+  <content>CommonModule.КодОтветаHTTPСервер</content>
+  <content>CommonModule.КодОтветаHTTPПовтИсп</content>
+</mdclass:Subsystem>
