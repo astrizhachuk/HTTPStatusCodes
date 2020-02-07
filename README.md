@@ -1,6 +1,6 @@
 # Работа с кодами ответов HTTP для "1С:Предприятие 8"
 
-![sonar-scanner](https://github.com/astrizhachuk/CodeStatusHTTP/workflows/sonar-scanner/badge.svg)
+[![Quality Gate Status](https://sonar.openbsl.ru/api/project_badges/measure?project=CodeStatusHTTP&metric=alert_status)](https://sonar.openbsl.ru/dashboard?id=CodeStatusHTTP)
 
 После проверки пары проектов с помощью [BSL Language Server](https://1c-syntax.github.io/bsl-language-server/) захотелось избавиться от "магических чисел" в коде при работе с HTTP-запросами. Использование данной небольшой библиотеки позволяет сделать работу с кодами ответов HTTP нагляднее и в соответствии со стандартами 1С.
 
@@ -24,12 +24,12 @@
 
 При разработке используются:
 
-1. [1C:Enterprise](https://1c-dn.com) 8.3.14.1993 (8.3.14 compatibility mode)
-2. [1C:Enterprise Development Tools](https://edt.1c.ru) (2020.1.0+640)
-3. [1Unit](https://github.com/DoublesunRUS/ru.capralow.dt.unit.launcher)
-4. [vanessa-automation](https://github.com/Pr-Mex/vanessa-automation)
-5. [dt.bslls.validator](https://github.com/DoublesunRUS/ru.capralow.dt.bslls.validator)
-6. [BSL Language Server](https://github.com/1c-syntax/bsl-language-server)
+1. [1C:Enterprise](https://1c-dn.com) 8.3.14.1993 (8.3.14 compatibility mode);
+2. [1C:Enterprise Development Tools](https://edt.1c.ru) (2020.1.0+640);
+3. [1Unit](https://github.com/DoublesunRUS/ru.capralow.dt.unit.launcher);
+4. [vanessa-automation](https://github.com/Pr-Mex/vanessa-automation);
+5. [dt.bslls.validator](https://github.com/DoublesunRUS/ru.capralow.dt.bslls.validator);
+6. [BSL Language Server](https://github.com/1c-syntax/bsl-language-server);
 
 ## Использование
 
