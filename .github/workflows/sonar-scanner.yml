@@ -1,10 +1,16 @@
 name: sonar-scanner
 
-on: [push, pull_request]
+on:
+    pull_request:
+      branches:
+      - master 
+    push: 
+      branches: 
+      - master
 
 jobs:
   SonarScanner:
-    if: github.repository == 'astrizhachuk/CodeStatusHTTP'
+    if: github.repository == 'astrizhachuk/HTTPStatusCodes'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -15,6 +21,7 @@ jobs:
       if: github.event_name == 'push'
       run: sonar-scanner
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        -Dsonar.projectVersion=$(grep -oPm1 "(?<=<version>)[^<]+" HTTPStatusCodes/src/Configuration/Configuration.mdo)
         -Dsonar.host.url=https://sonar.openbsl.ru
         -Dsonar.branch.name=${GITHUB_REF#refs/heads/}
     - name: Run SonarQube on pull request
@@ -22,6 +29,7 @@ jobs:
       run: sonar-scanner
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         -Dsonar.host.url=https://sonar.openbsl.ru
+        -Dsonar.projectVersion=$(grep -oPm1 "(?<=<version>)[^<]+" HTTPStatusCodes/src/Configuration/Configuration.mdo)
         -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
         -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
         -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
